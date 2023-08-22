@@ -12,7 +12,7 @@ damage = 0
 
 def damage():
     print('You hit the target for the following damage')
-    damage = random.randint(0,int(dice))
+    damage = random.randint(1,int(dice))
     print(damage)
     global totalDamage
     totalDamage += damage    
@@ -29,7 +29,7 @@ print('What sided die should be used for damage?')
 dice = int(input())
 print('***')
 
-for hit in range(1,numAllies):
+for hit in range(0,numAllies):
     rollHit = random.randint(1,20)
     print(rollHit)    
     if rollHit == 20:
