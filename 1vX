@@ -1,0 +1,53 @@
+import random
+
+dice = 0
+numAC = 0
+numAllies = 0
+totalDamage = 0
+damage = 0
+
+def damage():
+    print('You hit the target for the following damage')
+    damage = random.randint(0,int(dice))
+    print(damage)
+    global totalDamage
+    totalDamage += damage    
+
+print('How many allies are there?')
+numAllies = int(input())
+print(type(numAllies))
+
+print('What is the foe\'s AC?')
+numAC = int(input())
+print(type(numAC))
+
+print('What sided die should be used for damage?')
+dice = int(input())
+print('***')
+
+for hit in range(1,numAllies):
+    rollHit = random.randint(1,20)
+    print(rollHit)    
+    if rollHit == 20:
+        print('Natural 20. CRITICAL STRIKE!')
+        damage()
+        print('Double damage time!')
+        damage()
+    elif rollHit == 1:
+        print('What a pitiful miss!')
+    elif rollHit >= numAC:
+        print('You hit the target')
+        damage()        
+    elif rollHit < numAC:
+        print('You missed the target')    
+    print('Press enter to continue')
+    input()
+    print('****')
+    
+print('The total damage to the target is ' + str(totalDamage))
+
+
+
+
+
+
