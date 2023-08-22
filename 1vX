@@ -1,3 +1,7 @@
+# #! python3
+# used in a situation when you have multiple allies in DND but one enemy
+# the program askes the user for input on the number of foes and what sided die to use for damage. 
+
 import random
 
 dice = 0
