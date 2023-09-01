@@ -15,8 +15,7 @@ globalDiff = 0
 critical = False
 
 def checkDie(roll,diff,bonus):
-    if roll < (dc + diff):
-        # print('You failed by ' + str((dc+diff)-roll)+'\n')
+    if roll < (dc + diff):        
         global globalDiff
         globalDiff = dc - roll
         return False
@@ -43,30 +42,22 @@ print('\n')
 
 while p1l < 3 and p2l < 3:
     p1 = random.randint(1,20) + p1Bonus
-    # print('Player 1 rolls ' + str(p1),'\n')
     if (checkDie(p1,p1Diff,p1Bonus)) == True:
         p1w += 1
     else:
         p1l += 1
-    # print('p1 diff is ' + str(p1Diff))
     p1Diff = globalDiff
-
-    # print('global diff is ' + str(globalDiff)+'\n')
-
+    
     if critical == True:
         p2l += 1
     critical = False
     p1Record.append(p1)
     p2 = random.randint(1,20) + p2Bonus
-    # print('Player 2 rolls ' + str(p2),'\n')
     if (checkDie(p2,p2Diff,p2Bonus)) == True:
         p2w += 1
     else:
         p2l += 1
-
-    # print('p2 diff is ' + str(p2Diff))
     p2Diff = globalDiff
-    # print('global diff is ' + str(globalDiff)+'\n')
     globalDiff = 0
     if critical == True:
         p1l += 1
